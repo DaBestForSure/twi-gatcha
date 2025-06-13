@@ -110,9 +110,21 @@
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            <!-- ADD THESE JVM ARGUMENTS TO FIX THE CRASH -->
+                            <commandlineArgs>-Djavafx.accessibility.disabled=true -Dprism.order=sw -Djava.awt.headless=false -Xmx2g</commandlineArgs>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <!-- ADD EXEC MAVEN PLUGIN AS ALTERNATIVE -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>org.abos.twi.gatcha.gui.Gui</mainClass>
+                    <commandlineArgs>-Djavafx.accessibility.disabled=true -Dprism.order=sw -Djava.awt.headless=false -Xmx2g</commandlineArgs>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -135,5 +147,5 @@
             </plugin>
         </plugins>
     </build>
-    
+
 </project>

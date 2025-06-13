@@ -92,11 +92,7 @@ public class BattlefieldPane extends Pane implements BattleUi {
                     // attack with the player character
                     else if (isPlayerAttacking() && battle.getCurrentCharacter() != null && battle.getSelectedAttack() != null && battle.getPossibleAttackFields().contains(position)) {
                         for (final ApplicableEffect effect : battle.getSelectedAttack().effects()) {
-                            try {
-                                effect.apply(battle.getCurrentCharacter(), position, battle);
-                            } catch (InterruptedException e) {
-                                throw new RuntimeException(e);
-                            }
+                            effect.apply(battle.getCurrentCharacter(), position, battle);
                         }
                         playerAttacking = false;
                         if (playerDone != null) {

@@ -81,7 +81,8 @@ public class DirectRandomAttacker extends AiCharacter {
         battle.setSelectedAttack(chosenAttack);
         final Vec2i chosenTarget = CollectionUtil.getRandomEntry(possibleTargets.get(chosenAttack), random);
         for (final ApplicableEffect effect : chosenAttack.effects()) {
-            effect.apply(battle.getCurrentCharacter(), chosenTarget, battle, false);
+            effect.apply(battle.getCurrentCharacter(), chosenTarget, battle, true);
         }
     }
+
 }
